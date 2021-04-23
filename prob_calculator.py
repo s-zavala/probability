@@ -71,5 +71,6 @@ def experiment(hat, expected_balls: dict, num_balls_drawn: int,
 
 if __name__ == '__main__':
     bowler = Hat(magenta=5, cerulean=5, polkadot=10)
-    p = experiment(bowler, {'magenta': 1, 'cerulean': 1, 'polkadot': 1}, 3, 1000)
+    p = experiment(bowler, {'magenta': 1, 'cerulean': 1, 'polkadot': 1}, 3,
+                   1000)
     print('Probability: ', p)
