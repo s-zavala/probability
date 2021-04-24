@@ -19,7 +19,7 @@ class Hat:
 
     def draw(self, num: int):
         """
-        Pick a ball at random from contents num times, w/o replacement.
+        Pick a ball at (pseudo)random from contents num times, w/o replacement.
         Return a list of strings of the type of balls picked.
         """
         if num >= len(self.contents): return self.contents
@@ -46,15 +46,12 @@ def experiment(hat, expected_balls: dict, num_balls_drawn: int,
     num_experiements -- number of trials
     Returns the probability of the drawing a certain combination.
     """
-    def compare(list1, list2):
-        copy = list2[:]
-        for x in list1:
-            if x in copy:
-                copy.remove(x)
-                continue
-            else:
-                return False
-        return True
+    def compare(expect, result):
+        copy = result[:]
+        for item in expect:
+            if item in copy:
+                copy.remove(item)
+        return True if not copy else False
 
     event = Hat(**expected_balls)
 
